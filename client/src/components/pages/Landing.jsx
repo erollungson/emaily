@@ -11,7 +11,7 @@ const Landing = () => {
       <Container>
         <HorizontalGap size={"100px"}/>
         <Typography variant="h1" align="center">
-          Email-It
+          Email-it
         </Typography>
         <Typography variant="subtitle1" align="center">
           Collect some Feedback from your users!
