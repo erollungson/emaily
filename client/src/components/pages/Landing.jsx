@@ -11,10 +11,10 @@ const Landing = () => {
       <Container>
         <HorizontalGap size={"100px"}/>
         <Typography variant="h1" align="center">
-          Emaily
+          EmailIt
         </Typography>
         <Typography variant="subtitle1" align="center">
-          Collect Feedback from your users!
+          Collect some Feedback from your users!
         </Typography>
       </Container>
     </>
