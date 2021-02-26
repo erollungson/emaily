@@ -51,7 +51,7 @@ const Header = () => {
               style={{ color: "white", textDecoration: "none" }}
               to={auth ? "/surveys" : "/"}
             >
-              EmailIt
+              Email-it
             </Link>
           </Typography>
 
