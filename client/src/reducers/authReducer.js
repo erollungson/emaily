@@ -1,7 +1,7 @@
 import { FETCH_USER } from '../actions/types';
+// eslint-disable-next-line
+export default function authReducer (state = null, action) {
 
-export default function (state, action) {
-  state = null;
 
   switch (action.type) {
     case FETCH_USER:

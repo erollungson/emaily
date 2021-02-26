@@ -1,28 +1,12 @@
 import React from "react";
 import StripeCheckout from "react-stripe-checkout";
-import { useDispatch } from 'react-redux';
-import * as actions from '../actions';
+import { useDispatch } from "react-redux";
+import * as actions from "../actions";
 
-import { Button } from "@material-ui/core";
-import { withStyles } from '@material-ui/core/styles';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
+import GradientBlueButton from "./utils/gradient-blue-button";
+import AddCircleIcon from "@material-ui/icons/AddCircle";
 
-const StyledButton = withStyles({
-    root: {
-      background: 'linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)',
-      border: 0,
-      color: 'white',
-      height: 48,
-      padding: '0 20px',
-      boxShadow: '0 3px 5px 2px rgba(33, 203, 243, .3)',
-    },
-    label: {
-      textTransform: 'capitalize',
-    },
-  })(Button);
-
-
-const Payments = () => {
+const Payments = ({ creditsCount }) => {
   const dispatch = useDispatch();
 
   return (
@@ -33,7 +17,11 @@ const Payments = () => {
       token={(token) => dispatch(actions.handleToken(token))}
       stripeKey={process.env.REACT_APP_STRIPE_KEY}
     >
-        <StyledButton variant="contained" color="secondary" startIcon={<AddCircleIcon />}>Credits</StyledButton>
+      <GradientBlueButton
+        variant="contained"
+        startIcon={<AddCircleIcon />}
+        label={`Credits: ${creditsCount}`}
+      />
     </StripeCheckout>
   );
 };

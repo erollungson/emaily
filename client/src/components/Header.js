@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Header = () => {
   const classes = useStyles();
-  const auth = useSelector(state => state.auth);
+  const auth = useSelector((state) => state.auth);
 
   function RenderContent() {
     switch (auth) {
@@ -34,9 +34,8 @@ const Header = () => {
         );
       default:
         return [
-          <Payments key={1} />,
-          <Typography style={{ margin: '0 10px'}} key={2}>Credits: {auth.credits}</Typography>,
-          <Button key={3} color="inherit" href="/api/logout">
+          <Payments key={1} creditsCount={auth.credits} />,
+          <Button key={2} color="inherit" href="/api/logout">
             Logout
           </Button>,
         ];
@@ -50,7 +49,7 @@ const Header = () => {
           <Typography variant="h4" className={classes.title}>
             <Link
               style={{ color: "white", textDecoration: "none" }}
-              to={ auth ? "/surveys" : "/" }
+              to={auth ? "/surveys" : "/"}
             >
               Emaily
             </Link>
