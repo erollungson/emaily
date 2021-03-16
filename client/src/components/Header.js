@@ -3,11 +3,13 @@ import Payments from "./Payments";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
-import { AppBar, Toolbar, Button, Typography } from "@material-ui/core";
+import { AppBar, Toolbar, Button, Typography, Grid } from "@material-ui/core";
+import { FcGoogle } from "react-icons/fc";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    
   },
   title: {
     flexGrow: 1,
@@ -28,16 +30,28 @@ const Header = () => {
         return null;
       case false:
         return (
-          <Button color="inherit" href="/auth/google">
-            Login With Google
+          <Button startIcon={<FcGoogle />} color="inherit" href="/auth/google">
+            Sign in with Google
           </Button>
         );
       default:
         return [
-          <Payments key={1} creditsCount={auth.credits} />,
-          <Button key={2} color="inherit" href="/api/logout">
-            Logout
-          </Button>,
+          <Grid key={1}
+            container
+            direction="row"
+            justify="flex-end"
+            alignItems="flex-start"
+            spacing={1}
+          > 
+           <Grid item >
+            <Payments creditsCount={auth.credits} />
+            </Grid>
+            <Grid item >
+            <Button variant="contained" color="secondary" href="/api/logout">
+              Logout
+            </Button>
+            </Grid>
+          </Grid>
         ];
     }
   }
@@ -46,6 +60,14 @@ const Header = () => {
     <div className={classes.root}>
       <AppBar className={classes.appBar}>
         <Toolbar>
+          <Grid  
+          container
+          direction="row"
+          justify="space-between"
+          alignItems="center"
+          spacing={1}>
+
+          <Grid item >
           <Typography variant="h4" className={classes.title}>
             <Link
               style={{ color: "white", textDecoration: "none" }}
@@ -54,8 +76,12 @@ const Header = () => {
               Email-it
             </Link>
           </Typography>
-
+          </Grid>
+          <Grid item >
           <RenderContent />
+          </Grid>
+
+          </Grid>
         </Toolbar>
       </AppBar>
     </div>

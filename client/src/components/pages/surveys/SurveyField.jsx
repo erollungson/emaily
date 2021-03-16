@@ -9,8 +9,6 @@ export default function SurveyField({
 }) {
 
 
-
-
   return (
     <>
 
@@ -20,10 +18,10 @@ export default function SurveyField({
         variant="outlined"
         label={label}
         fullWidth
-        {...input}
         error={touched && error? true : false}
         helperText={touched && error}
         required
+        {...input}
       />
       
     </>
