@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { CssBaseline, Typography, Container, Fab } from "@material-ui/core";
+import { Typography, Container, Fab } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 import AddIcon from "@material-ui/icons/Add";
@@ -22,7 +22,7 @@ const Dashboard = () => {
   const classes = useStyles();
 
   const fab = {
-    color: "secondary",
+    color: "primary",
     className: classes.fab,
     icon: <AddIcon />,
     label: "Add",
@@ -33,7 +33,6 @@ const Dashboard = () => {
       <>
         <Container>
           <HorizontalGap />
-          <CssBaseline />
 
           <Typography> Dashboard</Typography>
 

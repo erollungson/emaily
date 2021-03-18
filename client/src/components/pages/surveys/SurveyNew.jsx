@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CssBaseline, Container } from "@material-ui/core";
+import { Container } from "@material-ui/core";
 import { reduxForm } from "redux-form";
 
 import HorizontalGap from "../../utils/horizontal-gap";
@@ -20,9 +20,8 @@ const SurveyNew = () => {
   return (
     <>
       <Container>
-        <CssBaseline />
         <HorizontalGap />
-        <RenderContent />
+        { RenderContent() }
       </Container>
     </>
   );

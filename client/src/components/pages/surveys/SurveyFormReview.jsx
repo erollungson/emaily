@@ -2,13 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Button, Typography, Grid } from "@material-ui/core";
-import SendIcon from "@material-ui/icons/Send";
-import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
+import { FaTelegramPlane, FaChevronCircleLeft } from "react-icons/fa";
 
 import * as actions from "../../../actions/index";
 import HorizontalGap from "../../utils/horizontal-gap";
-
-
 
 const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history}) => {
   const { title, subject, body, recipients } = formValues;
@@ -90,8 +87,9 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history}) => {
         <Grid item>
           <Button
             variant="contained"
+            color="secondary"
             onClick={onCancel}
-            startIcon={<ArrowBackIosIcon />}
+            startIcon={<FaChevronCircleLeft />}
           >
             Back
           </Button>
@@ -100,9 +98,9 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history}) => {
         <Grid item>
           <Button
             variant="contained"
-            color="secondary"
+            color="primary"
             onClick={ () => submitSurvey(formValues, history)}
-            endIcon={<SendIcon />}
+            endIcon={<FaTelegramPlane />}
           >
             Send Survey
           </Button>

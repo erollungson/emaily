@@ -2,10 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
-import reduxThunk from 'redux-thunk';
-
+import reduxThunk from "redux-thunk";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import { ThemeProvider } from "@material-ui/core/styles";
 import App from "./components/App";
 import reducers from "./reducers";
+import theme from "./theme";
 
 // for testing
 // import axios from 'axios';
@@ -14,10 +16,11 @@ import reducers from "./reducers";
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
 ReactDOM.render(
-  <React.StrictMode>
-  <Provider store={store}>
-    <App />
-  </Provider>
-  </React.StrictMode>,
+  <ThemeProvider theme={theme}>
+    <CssBaseline />
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </ThemeProvider>,
   document.querySelector("#root")
 );

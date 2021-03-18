@@ -1,14 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import _ from "lodash";
 import { reduxForm, Field } from "redux-form";
 import { Link } from "react-router-dom";
-import { Grid, Typography } from "@material-ui/core";
-import { NavigateNext } from "@material-ui/icons";
-import CancelIcon from "@material-ui/icons/Cancel";
+import { Grid, Typography, Button } from "@material-ui/core";
+import { FaChevronCircleRight, FaTimesCircle } from "react-icons/fa";
 
 import SurveyField from "./SurveyField";
-import GradientBlueButton from "../../utils/gradient-blue-button";
-import GradientRedButton from "../../utils/gradient-red-button";
 import HorizontalGap from "../../utils/horizontal-gap";
 import validateEmails from "../../utils/validateEmails";
 
@@ -22,24 +19,29 @@ const FIELDS = [
   },
 ];
 
-class SurveyForm extends Component {
-  render() {
+const SurveyForm = ( {handleSubmit, onSurveySubmit}) => {
+
+  const renderFields = () => {
+    return _.map(FIELDS, ({ label, name }, index) => {
+      console.log(index);
+      return (
+        <Field
+          key={index}
+          component={SurveyField}
+          type="input"
+          label={label}
+          name={name}
+        />
+      );
+    });
+  }
+
     return (
       <>
-        <form onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}>
+        <form onSubmit={handleSubmit(onSurveySubmit)}>
           <Typography variant="h4">Create Survey</Typography>
 
-          {_.map(FIELDS, ({ label, name }, index) => {
-            return (
-              <Field
-                key={index}
-                component={SurveyField}
-                type="text"
-                label={label}
-                name={name}
-              />
-            );
-          })}
+         {renderFields()}
 
           <HorizontalGap />
           <Grid
@@ -50,39 +52,39 @@ class SurveyForm extends Component {
           >
             <Grid item>
               <Link to="/surveys" style={{ textDecoration: "none" }}>
-                <GradientRedButton
-                  startIcon={<CancelIcon />}
+                <Button
                   variant="contained"
-                  label="Cancel"
-                />
+                  color="secondary"
+                  startIcon={<FaTimesCircle />}
+                >Cancel</Button>
               </Link>
             </Grid>
 
             <Grid item>
-              <GradientBlueButton
+              <Button
                 variant="contained"
                 type="submit"
-                endIcon={<NavigateNext />}
-                label="Next"
-              />
+                color="primary"
+                endIcon={<FaChevronCircleRight />}
+              >Next</Button>
             </Grid>
           </Grid>
         </form>
       </>
     );
   }
-}
 
 function validate(values) {
   const errors = {};
-  console.log("hello");
-  errors.recipients = validateEmails(values.recipients || "");
+ 
+  errors.recipients = validateEmails(values.recipients || '');
 
   _.each(FIELDS, ({ name }) => {
     if (!values[name]) {
       errors[name] = `You must provide a ${name}`;
     }
   });
+
   return errors;
 }
 
