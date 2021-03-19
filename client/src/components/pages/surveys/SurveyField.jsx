@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { TextField } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import HorizontalGap from "../../utils/horizontal-gap";
@@ -6,7 +6,7 @@ import HorizontalGap from "../../utils/horizontal-gap";
 const ValidationTextField = withStyles({
   root: {
     '& input:valid + fieldset': {
-      borderColor: 'green',
+      borderColor: '#52b202',
       borderWidth: 2,
     },
     '& input:valid:focus + fieldset': {

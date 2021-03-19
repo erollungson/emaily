@@ -2,12 +2,13 @@ import React from "react";
 import _ from "lodash";
 import { reduxForm, Field } from "redux-form";
 import { Link } from "react-router-dom";
-import { Grid, Typography, Button } from "@material-ui/core";
-import { FaChevronCircleRight, FaTimesCircle } from "react-icons/fa";
+import { Grid, Button } from "@material-ui/core";
+import { FaChevronCircleRight, FaTimesCircle, FaExclamationCircle } from "react-icons/fa";
 
 import SurveyField from "./SurveyField";
 import HorizontalGap from "../../utils/horizontal-gap";
 import validateEmails from "../../utils/validateEmails";
+import { Title, StyledPaper } from "../../utils/form-utils";
 
 const FIELDS = [
   { label: "Survey Title", name: "title" },
@@ -23,7 +24,6 @@ const SurveyForm = ( {handleSubmit, onSurveySubmit}) => {
 
   const renderFields = () => {
     return _.map(FIELDS, ({ label, name }, index) => {
-      console.log(index);
       return (
         <Field
           key={index}
@@ -38,12 +38,15 @@ const SurveyForm = ( {handleSubmit, onSurveySubmit}) => {
 
     return (
       <>
+       <StyledPaper>
         <form onSubmit={handleSubmit(onSurveySubmit)}>
-          <Typography variant="h4">Create Survey</Typography>
+         
+          <Title variant="h4">Create Survey</Title>
+          <HorizontalGap size={50}/>
 
          {renderFields()}
 
-          <HorizontalGap />
+          <HorizontalGap size={50}/>
           <Grid
             container
             direction="row"
@@ -69,7 +72,9 @@ const SurveyForm = ( {handleSubmit, onSurveySubmit}) => {
               >Next</Button>
             </Grid>
           </Grid>
+          
         </form>
+        </StyledPaper>
       </>
     );
   }
@@ -81,7 +86,14 @@ function validate(values) {
 
   _.each(FIELDS, ({ name }) => {
     if (!values[name]) {
-      errors[name] = `You must provide a ${name}`;
+      errors[name] = (
+          <Grid component="span" direction="row" container spacing={1}>
+            <Grid item component="span">
+              <FaExclamationCircle size={15} />
+            </Grid>
+            <Grid item component="span">You must provide a {name}</Grid>
+          </Grid>
+      );
     }
   });
 

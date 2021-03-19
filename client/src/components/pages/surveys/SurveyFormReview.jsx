@@ -6,14 +6,16 @@ import { FaTelegramPlane, FaChevronCircleLeft } from "react-icons/fa";
 
 import * as actions from "../../../actions/index";
 import HorizontalGap from "../../utils/horizontal-gap";
+import { Title, StyledPaper } from "../../utils/form-utils";
 
 const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history}) => {
   const { title, subject, body, recipients } = formValues;
 
   return (
     <>
-      <Typography variant="h4">Survey Summary</Typography>
-      <HorizontalGap />
+      <StyledPaper>
+      <Title variant="h4">Survey Summary</Title>
+      <HorizontalGap size={50} />
 
       <Grid
         container
@@ -75,7 +77,7 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history}) => {
         </Grid>
       </Grid>
 
-      <HorizontalGap />
+      <HorizontalGap size={50}/>
 
       <Grid
         container
@@ -106,6 +108,7 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history}) => {
           </Button>
         </Grid>
       </Grid>
+      </StyledPaper>
     </>
   );
 };
