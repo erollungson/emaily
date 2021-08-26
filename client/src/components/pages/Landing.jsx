@@ -11,6 +11,7 @@ import {
 import { makeStyles } from "@material-ui/core/styles";
 
 import HorizontalGap from "../utils/horizontal-gap";
+import HorizontalSpace from "../utils/horizontal-space";
 import { ReactComponent as EmailImage } from "../../assets/svg/undraw_hey_email_liaa.svg";
 
 const useStyles = makeStyles((theme) => ({
@@ -115,7 +116,7 @@ const Landing = () => {
            
            
               <Grid item xs={12} sm={6} zeroMinWidth>
-
+                <HorizontalSpace size={22}/>
               <Zoom
               in={checked}
               style={{ transformOrigin: "0 0 0" }}
