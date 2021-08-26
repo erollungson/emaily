@@ -11,12 +11,27 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     
   },
-  title: {
-    flexGrow: 1,
-  },
   appBar: {
     position: "static",
-    background: "#2196f3",
+    background: 'linear-gradient(-45deg, #04befe, #2196f3 35%)',
+  },
+  gButton: {
+    fontWeight: 600,
+  },
+
+  emailText: {
+    fontWeight: 600,
+    lineHeight: 1,
+    // backgroundColor: "#3399ff",
+    color: "#fff",
+    [theme.breakpoints.down("sm")]: {
+
+    },
+  },
+
+  spanText: {
+    color: "#403c55",
+    backgroundColor: "none",
   },
 }));
 
@@ -30,7 +45,7 @@ const Header = () => {
         return null;
       case false:
         return (
-          <Button startIcon={<FcGoogle />} color="inherit" href="/auth/google">
+          <Button className={classes.gButton} startIcon={<FcGoogle />} color="inherit" href="/auth/google">
             Sign in with Google
           </Button>
         );
@@ -68,12 +83,12 @@ const Header = () => {
           spacing={1}>
 
           <Grid item >
-          <Typography variant="h4" className={classes.title}>
+          <Typography className={classes.emailText} variant="h4" >
             <Link
               style={{ color: "white", textDecoration: "none" }}
               to={auth ? "/surveys" : "/"}
             >
-              Email-it
+              Email<span className={classes.spanText}>-it</span>
             </Link>
           </Typography>
           </Grid>

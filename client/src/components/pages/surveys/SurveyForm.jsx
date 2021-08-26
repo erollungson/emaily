@@ -6,7 +6,7 @@ import { Grid, Button } from "@material-ui/core";
 import { FaChevronCircleRight, FaTimesCircle, FaExclamationCircle } from "react-icons/fa";
 
 import SurveyField from "./SurveyField";
-import HorizontalGap from "../../utils/horizontal-gap";
+import HorizontalSpace from "../../utils/horizontal-space";
 import validateEmails from "../../utils/validateEmails";
 import { Title, StyledPaper } from "../../utils/form-utils";
 
@@ -38,15 +38,15 @@ const SurveyForm = ( {handleSubmit, onSurveySubmit}) => {
 
     return (
       <>
-       <StyledPaper>
+       <StyledPaper elevation={3}>
         <form onSubmit={handleSubmit(onSurveySubmit)}>
          
           <Title variant="h4">Create Survey</Title>
-          <HorizontalGap size={50}/>
+          <HorizontalSpace size={50}/>
 
          {renderFields()}
 
-          <HorizontalGap size={50}/>
+          <HorizontalSpace size={50}/>
           <Grid
             container
             direction="row"

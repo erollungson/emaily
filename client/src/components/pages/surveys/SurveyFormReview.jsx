@@ -5,7 +5,7 @@ import { Button, Typography, Grid } from "@material-ui/core";
 import { FaTelegramPlane, FaChevronCircleLeft } from "react-icons/fa";
 
 import * as actions from "../../../actions/index";
-import HorizontalGap from "../../utils/horizontal-gap";
+import HorizontalSpace from "../../utils/horizontal-space";
 import { Title, StyledPaper } from "../../utils/form-utils";
 
 const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history}) => {
@@ -13,9 +13,9 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history}) => {
 
   return (
     <>
-      <StyledPaper>
+      <StyledPaper  elevation={3}>
       <Title variant="h4">Survey Summary</Title>
-      <HorizontalGap size={50} />
+      <HorizontalSpace size={50} />
 
       <Grid
         container
@@ -77,7 +77,7 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history}) => {
         </Grid>
       </Grid>
 
-      <HorizontalGap size={50}/>
+      <HorizontalSpace size={50}/>
 
       <Grid
         container

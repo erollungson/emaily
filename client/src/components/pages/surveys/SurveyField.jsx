@@ -1,7 +1,7 @@
 import * as React from "react";
 import { TextField } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
-import HorizontalGap from "../../utils/horizontal-gap";
+import HorizontalSpace from "../../utils/horizontal-space";
 
 const ValidationTextField = withStyles({
   root: {
@@ -23,7 +23,7 @@ export default function SurveyField({
 }) {
   return (
     <>
-      <HorizontalGap />
+      <HorizontalSpace size={50}/>
       <ValidationTextField
         id="validation-outlined-input"
         variant="outlined"
