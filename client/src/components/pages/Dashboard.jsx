@@ -4,7 +4,8 @@ import { Typography, Container, Fab } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 import AddIcon from "@material-ui/icons/Add";
-import HorizontalGap from "../utils/horizontal-gap";
+import HorizontalSpace from "../utils/horizontal-space";
+import SurveyList from "./surveys/SurveyList";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -12,9 +13,12 @@ const useStyles = makeStyles((theme) => ({
     //  position: 'relative',
   },
   fab: {
-    position: "absolute",
-    bottom: theme.spacing(5),
-    right: theme.spacing(5),
+    position: "fixed",
+    bottom: theme.spacing(2),
+    right: theme.spacing(2),
+  },
+  title: {
+    fontWeight: 600,
   },
 }));
 
@@ -32,10 +36,12 @@ const Dashboard = () => {
     <div className={classes.root}>
       <>
         <Container>
-          <HorizontalGap />
+          <HorizontalSpace size={"50px"}/>
 
-          <Typography> Dashboard</Typography>
-
+          <Typography className= {classes.title} variant="h5" component="h3" > Surveys</Typography>
+          <HorizontalSpace size={"30px"}/>
+          
+          <SurveyList/>
           <Link to="/surveys/new" >
             <Fab
               aria-label={fab.label}

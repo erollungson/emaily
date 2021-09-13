@@ -100,28 +100,26 @@ const Landing = () => {
             spacing={10}
             justify="center"
           >
-            
-              <Grid item xs={12} sm={6} zeroMinWidth>
+            <Grid item xs={12} sm={6} zeroMinWidth>
               <Grow
-              in={checked}
-              style={{ transformOrigin: "0 0 0" }}
-              {...(checked ? { timeout: 1000 } : {})}
-            >
+                in={checked}
+                style={{ transformOrigin: "0 0 0" }}
+                {...(checked ? { timeout: 1000 } : {})}
+              >
                 <CardMedia
                   className={classes.emailImage}
                   component={EmailImage}
                 />
-                 </Grow>
-              </Grid>
-           
-           
-              <Grid item xs={12} sm={6} zeroMinWidth>
-                <HorizontalSpace size={22}/>
+              </Grow>
+            </Grid>
+
+            <Grid item xs={12} sm={6} zeroMinWidth>
+              <HorizontalSpace size={22} />
               <Zoom
-              in={checked}
-              style={{ transformOrigin: "0 0 0" }}
-              {...(checked ? { timeout: 1000 } : {})}
-            >
+                in={checked}
+                style={{ transformOrigin: "0 0 0" }}
+                {...(checked ? { timeout: 1000 } : {})}
+              >
                 <Typography
                   className={classes.emailText}
                   variant="h1"
@@ -129,13 +127,8 @@ const Landing = () => {
                 >
                   Email<span className={classes.spanText}>-it</span>
                 </Typography>
-
-                </Zoom>
-                {/* <Zoom 
-                in={checked}
-                style={{ transformOrigin: "center" }}
-                {...(checked ? { timeout: 5000 } : {})}> */}
-                <Slide direction="up" in={checked} mountOnEnter unmountOnExit>
+              </Zoom>
+              <Slide direction="up" in={checked} mountOnEnter unmountOnExit>
                 <Typography
                   className={classes.text}
                   variant="h6"
@@ -143,10 +136,8 @@ const Landing = () => {
                 >
                   Collect some Feedback from your users!
                 </Typography>
-                </Slide>
-                {/* </Zoom> */}
-              </Grid>
-           
+              </Slide>
+            </Grid>
           </Grid>
         </Container>
       </div>
